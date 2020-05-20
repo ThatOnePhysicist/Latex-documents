@@ -1,0 +1,109 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{commath}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{feynmp}
+\usepackage{tikz}
+\usepackage{siunitx}
+\DeclareGraphicsRule{*}{mps}{*}{}
+\usepackage{luatex85}
+\usepackage{tikz-feynman}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{ntheorem}
+\usepackage{listings}
+\usepackage{physics}
+\usepackage{stackengine,graphicx}
+
+\newcommand\frightarrow{\scalebox{1}[.4]{$\rightarrow$}}
+\newcommand\darrow[1][]{\mathrel{\stackon[1pt]{\stackanchor[1pt]{\frightarrow}{\frightarrow}}{\scriptstyle#1}}}
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\graphicspath{ {./Real analysis/} }
+
+\newcommand{\eq}[2]{\begin{equation} \label{eq:#1} #2 \end{equation}} %define equation macro
+
+\theoremstyle{break}
+\newtheorem{theorem}{Theorem}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+ %   backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=true,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+  %  numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\tikzfeynmanset{compat=1.1.0}
+
+%-----------------PAGE STYLE------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{}
+\lhead{}
+\rfoot{\thepage}
+%----------------BEGIN------------------------------
+\begin{document}
+  \section*{8 Conservation Laws}
+    \subsubsection*{8.1 Charge and energy}
+      \subsubsection*{8.1.1 The continuity equation}
+        Conservation of charge: \newline
+          The charge in a volume $\mathcal{V}$ is
+            \begin{equation}\tag{8.1}
+              Q(t) = \int_{\mathcal{V}} \rho(\textbf{r},t)d\tau
+            \end{equation}
+          and the current flowing through the boundary $\mathcal{S}$ is $\oint_{\mathcal{S}}\textbf{J}\cdot d\mathbf{a}$ so local charge conservation says
+            \begin{equation}\tag{8.2}
+              \frac{dQ}{dt} = -\oint_{\mathcal{S}}\mathbf{J}\cdot d \mathbf{a}
+            \end{equation}
+          Applying divergence theorem to $(8.1)$
+            \begin{equation}\tag{8.3}
+              \int_{\mathcal{V}}\pd\rho td\tau = - \int_{\mathcal{V}}\nabla \cdot \mathbf{J}d\tau
+            \end{equation}
+          since this is true for any volume, the continuity equation:
+            \begin{equation}\tag{8.4}
+              \boxed{\pd \rho t = -\nabla \cdot \mathbf{J}}
+            \end{equation}
+      \subsubsection*{8.1.2 Poynting's thorem}
+        Work needed to create a static charge distribution,
+          \begin{equation*}
+            W_e = \frac{\epsilon_0}{2}\int E^2 d\tau.
+          \end{equation*}
+        Work needed to get currents going,
+          \begin{equation*}
+            W_m = \frac{1}{2\mu_0}\int B^2 d\tau.
+          \end{equation*}
+        The total energy stored in the electromagnetic fields,
+          \begin{equation}\tag{8.5}
+            \boxed{u = \frac{1}{2}\left(\epsilon_0E^2 + \frac{1}{\mu_0}B^2\right).}
+          \end{equation}
+        Suppose we have some charge and current configuration which, at time $t$, produces fields \textbf{E} and \textbf{B}. In the next instant, $dt$, the chages move aorund a bit. Using the Lorentz force law, the work done on a charge q is
+          \begin{equation*}
+            \textbf{F} \cdot d\textbf{l} = q\left(\textbf{E} + \textbf{v}\cross\textbf{B}  \right)\cdot \textbf{v} dt = q\textbf{E}\cdot \textbf{v}dt.
+          \end{equation*}
+        In terms of the charge and current densities, $q \to \rho d\tau$ and $\rho\textbf{v}\to \textbf{J}^2$, the rate at which work is done on all the charges in a volume $\mathcal{V}$ is
+          \[\frac{dW}{dt} = \int_{\mathcal{V}}\textbf{E}\cdot\textbf{J}d\tau  \]
+\end{document}
