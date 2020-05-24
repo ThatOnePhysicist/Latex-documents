@@ -1,0 +1,395 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{commath}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{feynmp}
+\usepackage{tikz}
+\usepackage{siunitx}
+\DeclareGraphicsRule{*}{mps}{*}{}
+\usepackage{luatex85}
+\usepackage{tikz-feynman}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{ntheorem}
+\usepackage{listings}
+\usepackage{physics}
+\usepackage{stackengine,graphicx}
+
+\renewcommand\arraystretch{2.5}
+
+
+\newcommand\frightarrow{\scalebox{1}[.4]{$\rightarrow$}}
+\newcommand\darrow[1][]{\mathrel{\stackon[1pt]{\stackanchor[1pt]{\frightarrow}{\frightarrow}}{\scriptstyle#1}}}
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\graphicspath{ {./Real analysis/} }
+
+\newcommand{\eq}[2]{\begin{equation} \label{eq:#1} #2 \end{equation}} %define equation macro
+
+\theoremstyle{break}
+\newtheorem{theorem}{Theorem}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+
+\lstdefinestyle{mystyle}{
+ %   backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=true,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+  %  numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\tikzfeynmanset{compat=1.1.0}
+
+%-----------------PAGE STYLE------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{}
+\lhead{}
+\rfoot{\thepage}
+%----------------BEGIN------------------------------
+\begin{document}
+  \begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%QUESTION 1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item Show that under the Lorentz transformation, $\tilde{u} \equiv d\textbf{\textit{x}}/dt$ transforms as
+    \begin{equation}
+      \tilde{u}'= \cfrac{d\textbf{\textit{x}}'}{dt} =
+      \begin{pmatrix}
+        c \cfrac{dt'}{dt'} \\
+        \cfrac{d\Vec{x}'}{dt'}
+      \end{pmatrix} =
+      \begin{pmatrix}
+        c \\
+        \Vec{u}
+      \end{pmatrix} =
+      \begin{pmatrix}
+        c \\
+        \cfrac{u_x - v}{1 - \frac{vu_x}{c^2}}\\
+        \cfrac{u_y - v}{\gamma\left(1 - \frac{vu_y}{c^2}\right)}\\
+        \cfrac{u_z - v}{\gamma\left(1 - \frac{vu_z}{c^2}\right)}
+      \end{pmatrix}
+    \end{equation}
+    where $\gamma \equiv 1/\sqrt{1-v^2/c^2}$. Note that the spatial components are 3-velocity addition formula! We see that $d\textbf{\textit{x}}/dt$ does not transform like a 4-vector under Lorentz transformation, despite it is a 4-component object.
+    \newline\\
+    \textbf{\textit{Solution}}:
+    \newline\\
+    Consider the following reletavistic relation, \[(t',x',y',z') = \left(\gamma(t-v/c^2x),\gamma(x-vt),y,z\right).\]
+    Applying the differential operator yields,
+    \[(dt',dx',dy',dz') = \left(\gamma(dt-v/c^2dx),\gamma(dx-vdt),dy,dz\right).\]
+    Dividing each term by $dt'$ gives us the spatial component of $\widetilde{u}'$ with the $u^0$ component being $d(ct)/dt = c$,
+    \[\widetilde{u}' = \begin{pmatrix}
+      c\\
+      \cfrac{\gamma\left(dx - vdt\right)}{\gamma \left(dt - \cfrac{v}{c^2}dx\right)}\\
+      \cfrac{dy}{\gamma \left(dt - \cfrac{v}{c^2}dx\right)}\\
+      \cfrac{dz}{\gamma \left(dt - \cfrac{v}{c^2}dx\right)}
+    \end{pmatrix}
+    = \begin{pmatrix}
+      c\\
+      \left(\cfrac{dx - vdt}{dt - \cfrac{v}{c^2}dx}\right)\left(\cfrac{\cfrac{1}{dt}}{\cfrac{1}{dt}}\right)\\
+      \left(\cfrac{dy}{\gamma \left(dt - \cfrac{v}{c^2}dx\right)}\right)\left(\cfrac{\cfrac{1}{dt}}{\cfrac{1}{dt}}\right)\\
+      \left(\cfrac{dz}{\gamma \left(dt - \cfrac{v}{c^2}dx\right)}\right)\left(\cfrac{\cfrac{1}{dt}}{\cfrac{1}{dt}}\right)
+    \end{pmatrix}\\
+    = \begin{pmatrix}
+      c \\
+      \cfrac{u_x - v}{1 - \frac{vu_x}{c^2}}\\
+      \cfrac{u_y - v}{\gamma\left(1 - \frac{vu_y}{c^2}\right)}\\
+      \cfrac{u_z - v}{\gamma\left(1 - \frac{vu_z}{c^2}\right)}
+    \end{pmatrix}
+    \]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%QUESTION 2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item Continue from the previous problem, where we found the transformation rule of the 4-component object $\tilde{u}$. Suppose we have another such 4-compnent object $\tilde{w}$. Calculate
+      \begin{itemize}
+        \item $\widetilde{u}' + \widetilde{w}'$, and
+        \item $(\widetilde{u} + \widetilde{w})'$.
+      \end{itemize}
+    Do the two agree with each other?
+    \newline\\
+    \textbf{\textit{Solution}}:
+    \newline\\
+    From 1. we know $\widetilde{u}'$ and can easily infer $\widetilde{w}'$,
+    \begin{equation*}
+      \begin{split}
+        \widetilde{u}' + \widetilde{w}' &= \begin{pmatrix}
+          c \\
+          \cfrac{u_x - v}{1 - \frac{vu_x}{c^2}}\\
+          \cfrac{u_y - v}{\gamma\left(1 - \frac{vu_y}{c^2}\right)}\\
+          \cfrac{u_z - v}{\gamma\left(1 - \frac{vu_z}{c^2}\right)}
+        \end{pmatrix} +
+        \begin{pmatrix}
+          c \\
+          \cfrac{w_x - v}{1 - \frac{vw_x}{c^2}}\\
+          \cfrac{w_y - v}{\gamma\left(1 - \frac{vw_y}{c^2}\right)}\\
+          \cfrac{w_z - v}{\gamma\left(1 - \frac{vw_z}{c^2}\right)}
+        \end{pmatrix}\\
+        &= \begin{pmatrix}
+          2c \\
+          \gamma_u^2(u_x-v) + \gamma^2_w(w_x-v)\\
+          \frac{\gamma_u^2(u_y-v) + \gamma^2_w(w_y-v)}{\gamma}\\
+          \frac{\gamma_u^2(u_z-v) + \gamma^2_w(w_z-v)}{\gamma}
+        \end{pmatrix}\\
+        &= \begin{pmatrix}
+          2c \\
+          \gamma_u^2u_x + \gamma_w^2w_x - v(\gamma^2_u+\gamma^2_w)\\
+          \frac{\gamma_u^2u_y + \gamma_w^2w_y - v(\gamma^2_u+\gamma^2_w)}{\gamma}\\
+          \frac{\gamma_u^2u_z + \gamma_w^2w_z - v(\gamma^2_u+\gamma^2_w)}{\gamma}
+        \end{pmatrix}
+      \end{split}
+    \end{equation*}
+    Let $\widetilde{r}' = (\widetilde{u}+\widetilde{w})'$
+    \begin{equation*}
+      \begin{split}
+        \begin{pmatrix}
+          c \\
+          \cfrac{r_x - v}{1 - \frac{vr_x}{c^2}}\\
+          \cfrac{r_y - v}{\gamma\left(1 - \frac{vr_y}{c^2}\right)}\\
+          \cfrac{r_z - v}{\gamma\left(1 - \frac{vr_z}{c^2}\right)}
+        \end{pmatrix}
+      \end{split}
+    \end{equation*}
+    Since $(\widetilde{u}+\widetilde{w})'^0 \neq \widetilde{u}'^0 + \widetilde{w}'^0$, it is clear that $(\widetilde{u}+\widetilde{w})' \neq \widetilde{u}' + \widetilde{w}'$ and therefore don't agree with each other.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%QUESTION 3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item If a reference frame moves together with the particle, we say this reference frame is the \textit{comoving} reference frame of the particle. In other words, in the comoving frame the particle is stationary. Find the 4-velocity $\textbf{\textit{U}}$ of the particle in the comoving frame.
+    \newline\\
+    \textbf{\textit{Solution}}:
+    \newline\\
+    The 4-velocity $\textbf{\textit{U}}$ of a particle is the derivative of the 4-position with respect to proper time $\tau$,
+    \[
+    \textbf{\textit{U}} = \cfrac{dX^{\alpha}}{d\tau} =
+      \begin{pmatrix}
+        \cfrac{dx^0}{d\tau}\\
+        \cfrac{dx^1}{d\tau}\\
+        \cfrac{dx^2}{d\tau}\\
+        \cfrac{dx^3}{d\tau}
+      \end{pmatrix} =
+      \begin{pmatrix}
+        c\cfrac{dt}{d\tau}\\
+        \cfrac{dx}{dt}\cfrac{dt}{d\tau}\\
+        \cfrac{dy}{dt}\cfrac{dt}{d\tau}\\
+        \cfrac{dz}{dt}\cfrac{dt}{d\tau}
+      \end{pmatrix}=
+      \begin{pmatrix}
+        \gamma c\\
+        \gamma u_x\\
+        \gamma u_y\\
+        \gamma u_z
+      \end{pmatrix}=
+      \begin{pmatrix}
+        \gamma c \\
+        \gamma \Vec{u}
+      \end{pmatrix}
+    \]
+    Since we are in the comoving frame, $\Vec{u} = 0 \to \textbf{\textit{U}} = \begin{pmatrix} \gamma c \\ 0 \end{pmatrix}$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%QUESTION 4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item Show that for any particle traveling with a speed $v<c$, its 4-velocity statisfies $\textbf{\textit{U}}\cdot \textbf{\textit{U}} = -c^2$.
+    \newline\\
+    \textbf{\textit{Solution}}:
+    \newline\\
+    Consider being in the reference frame of some particle with 4-velocity $\textbf{\textit{U}} = \cfrac{dX^{\alpha}}{d\tau}$ where, $dt = \gamma{(v)}d\tau$ and $\gamma{(v)} \equiv \cfrac{1}{\sqrt{1-\frac{v^2}{c^2}}}$. But in the particle's reference frame, $\abs{v} = 0$ thus, $\gamma(v) = 1 \to dt = d\tau$
+      \begin{equation*}
+        %\begin{split}
+          \textbf{\textit{U}} = \cfrac{dX^{\alpha}}{d\tau}
+          &= \begin{pmatrix}
+            \cfrac{dx^0}{d\tau} \\
+            \cfrac{dx^1}{d\tau} \\
+            \cfrac{dx^2}{d\tau} \\
+            \cfrac{dx^3}{d\tau}
+          \end{pmatrix}\\
+          &= \begin{pmatrix}
+            \cfrac{d(ct)}{d\tau} \\
+            \cfrac{dx^1}{dt}\cfrac{dt}{d\tau} \\
+            \cfrac{dx^2}{dt}\cfrac{dt}{d\tau} \\
+            \cfrac{dx^3}{dt}\cfrac{dt}{d\tau}
+          \end{pmatrix}\\
+          &= \begin{pmatrix}
+            c\\
+            v^1\\
+            v^2\\
+            v^3
+          \end{pmatrix}\\
+          &= \begin{pmatrix}
+            c\\
+            0\\
+            0\\
+            0
+          \end{pmatrix}\Rightarrow
+          \textbf{\textit{U}} &= \begin{pmatrix}
+            c \\
+            \textbf{0}
+        \end{pmatrix}
+        %\end{split}
+      \end{equation*}
+      Assuming the Minkowski metric,
+      \begin{equation*}
+        \begin{split}
+          \textbf{\textit{U}}\cdot \textbf{\textit{U}} &\equiv \sum \eta_{\alpha \beta}U^{\alpha}U^{\beta} \\
+            &=
+          \begin{pmatrix}
+            -1 & 0 & 0 & 0\\
+            0 & 1 & 0 & 0\\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 1
+          \end{pmatrix}
+          \begin{pmatrix}
+            v^0 \\
+            v^1 \\
+            v^2 \\
+            v^3
+          \end{pmatrix}
+          \begin{pmatrix}
+            v^0 \\
+            v^1 \\
+            v^2 \\
+            v^3
+          \end{pmatrix}\\
+          &= (-1)c^2 + \abs{\textbf{u}}^2\\
+          &= \abs{\textbf{0}}^2 - c^2\\
+          \therefore \textbf{\textit{U}}\cdot \textbf{\textit{U}} &= -c^2 \hspace{.5 cm} \square
+        \end{split}
+      \end{equation*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%QUESTION 5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item For a particle of mass $m$ moving in the $\mathcal{S}$-frame whose spacetime coordinate is described by $\textbf{\textit{x}} = \left(ct, \Vec{x}(t)\right)$, its 4-momentum is defined as $\textbf{\textit{P}} \equiv m \textbf{\textit{U}}$, where \textbf{\textit{U}} is the particle's 4-veloctiy,
+      \[\textbf{\textit{U}} = \frac{d\textbf{\textit{x}}}{d\tau}\]
+    and $\tau$ is the proper time measured by the clock moving with the particle. With the relativistic energy $E$ and the reletavistic 3-momentum $\Vec{p}$ defined as the temporal and spatial components of the 4-momentumm as
+      \[\textbf{\textit{P}} = \begin{pmatrix}
+        E/c\\
+        \Vec{p}
+      \end{pmatrix},\]
+    \textbf{show \textit{explicitly} that the relativistic energy and 3-momentum can be expressed as}
+      \[E = \cfrac{mc^2}{\sqrt{1-v^2/c^2}}, \qquad \Vec{p} = \cfrac{m \Vec{v}}{\sqrt{1-v^2/c^2}},\]
+    where $v \equiv \abs{\Vec{v}} = \abs{d\Vec{x}/dt}$.
+    \newline\\
+    \textbf{\textit{Solution}}:
+    \newline\\
+    $\textbf{\textit{P}}^{\alpha} = m \textbf{\textit{U}}^{\alpha}$ where, $\textbf{\textit{U}}$ is the 4-velocity and define $\gamma(v) = \frac{1}{\sqrt{1-v^2/c^2}}$ as usual.
+    \[P^0 = mU^0 = \gamma mv^0\text{ and }P^i = mU^i = \gamma m v^i\]
+    Consider the 0-component: given $P^0 = E/c$,
+    \[\frac{E}{c} = \gamma mv^0 \to \frac{E}{c} = \gamma m c \to E = \gamma mc^2. \]
+    Consider the $i$th-component where $i = 1,2, \text{ and }3$: given $P^i = \Vec{p}$ where $p^i$ is the momentum 3-vector,
+    \[\Vec{p} = \gamma mv^i \to \Vec{p} = \gamma p^i\]
+    Thus,
+    \[E = \cfrac{mc^2}{\sqrt{1-v^2/c^2}}, \qquad \Vec{p} = \cfrac{m \Vec{v}}{\sqrt{1-v^2/c^2}}.\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%QUESTION 6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item
+      \begin{enumerate}
+        \item[(a)] Show that the reletavistic energy $E$ and the 3-momentum $\Vec{p}$ satisfies the following identity
+        \[E^2 - \abs{\Vec{p}}^2c^2 = m^2c^4\]
+        \item[(b)] Express the speed $v$ of the particle in terms of the relativistic 3-momentum $\abs{\Vec{p}}$, relativistic energy $E$, and the speed of light $c$.
+        \item[(c)] With the relations (a) and (b), what is the relation between $\abs{\Vec{p}}$ and $E$ for a massless particle and how fast should it travel?
+      \end{enumerate}
+      \newline\\
+      \textbf{\textit{Solution}}:
+      \newline\\
+      (a) Assuming the Minkowski metric, $\eta = (-,+,+,+)$, consider from 5., $\textbf{\textit{P}} = \begin{pmatrix}
+        E/c\\
+        \Vec{p}
+      \end{pmatrix}$.
+      \begin{equation*}
+          \begin{split}
+              \textbf{\textit{P}}^2 &= \textbf{\textit{P}} \cdot \textbf{\textit{P}}\\
+                &= \sum \eta_{\alpha \beta}P^{\alpha}P^{\beta}\\
+                &= -\left(P^0\right)^2 + \left(P^i\right)^2\\
+                &= -\left(\frac{E}{c}\right)^2 + \abs{\Vec{p}}^2
+          \end{split}
+      \end{equation*}
+      From 4. we know that $\textbf{\textit{P}}^2 = -mc^2$ where $m$ is the rest mass of the object. Thus,
+      \begin{equation*}
+        \begin{split}
+          -m^2c^2 &= -\left(\frac{E}{c}\right)^2 + \abs{\Vec{p}}^2\\
+          &\text{ or }\\
+          E^2 - \abs{\Vec{p}}^2c^2 &= m^2c^4
+        \end{split}
+      \end{equation*}
+      (b) From 5, $\Vec{p} = \gamma m \Vec{v}$ and $E = \gamma mc^2$
+      \begin{equation*}
+            \begin{split}
+              E^2 - \abs{\Vec{p}}^2c^2 &= m^2c^4\\
+              E^2 - \abs{\gamma m\Vec{v}}^2c^2 &= m^2c^4\\
+              E^2 + m^2c^4 &= \abs{\gamma m\Vec{v}}^2c^2\\
+              v &= \sqrt{\frac{E^2 + m^2c^4}{\left(\gamma mc\right)^2}}\\
+              v &= \frac{\sqrt{\left(\gamma^2 + 1\right)m^2c^4}}{\gamma mc}\\
+              v &= \frac{mc^2\sqrt{\gamma^2+1}}{\gamma mc}\\
+              v &= \frac{c\sqrt{\gamma^2 + 1}}{\gamma}
+            \end{split}
+          \end{equation*}
+      (c)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%QUESTION 7%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item Show that when a particle's speed $\abs{\Vec{v}}$ is much smaller than $c$,
+      \begin{enumerate}
+        \item[(i.)] the reletavistic 3-momentum is reduced to the momentum in Newtonian mechanics.
+        \item[(ii.)] the relativistic energy is reduced to a rest mass energy $E_0 = mc^2$ plus the kinetic energy defined in Newtonian mechanics.
+      \end{enumerate}
+      \newline\\
+      \textbf{\textit{Solution}}:
+      \newline\\
+      (i.) For $0<v\ll c \to 0<\left(\cfrac{v}{c}\right)^2 \ll 1$, therefore,
+          \[\Vec{p} = \frac{m\Vec{v}}{\sqrt{1- \frac{v^2}{c^2}}} \approx m\Vec{v}\]
+      (ii.) For $0<v\ll c \to \left(\cfrac{v}{c}\right)^2 \ll 1$, therefore,
+          \begin{equation*}
+            \begin{split}
+              E^2 &= m^2c^4 + \abs{\Vec{p}}^2c^2\\
+              E &= \sqrt{m^2c^4 + \abs{\Vec{p}}^2c^2}\\
+              &= \sqrt{m^2c^4 + m^2v^2c^2}\\
+              &= \sqrt{m^2c^2(c^2+v^2)}\\
+              &= mc\sqrt{c^2+v^2}\\
+              E &\approx mc^2
+            \end{split}
+          \end{equation*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%QUESTION 8%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item Consider a $2 \to 2$ particle scattering, where $A$ and $B$ collide and come out with particle $C$ and $D$. Suppose in the $\mathcal{S}$-frame the 4-momentum is conserved, i.e.
+      \[\textbf{\textit{P}}_1 + \textbf{\textit{P}}_2 = \textbf{\textit{P}}_3 + \textbf{\textit{P}}_4.\]
+    Show that if the 4-momentums $\textbf{\textit{P}}_i$ transform linearly under Lorentz transformations, that is
+      \[\Lambda(a\textbf{\textit{P}}_i + b \textbf{\textit{P}}_j) = a \Lambda(\textbf{\textit{P}}_i)+b \Lambda(\textbf{\textit{P}}_j)\]
+    for any real numbers $a$ and $b$ and 4-momentums $\textbf{\textit{P}}_i$ and $\textbf{\textit{P}}_j$, then the 4-momentum conservation also holds true in other inertial reference frams, i.e.
+      \[\textbf{\textit{P}}_1' + \textbf{\textit{P}}_2' = \textbf{\textit{P}}_3' + \textbf{\textit{P}}_4'.\]
+      \newline\\
+      \textbf{\textit{Solution}}:
+      \newline\\
+      Given $\textbf{\textit{P}}_1 + \textbf{\textit{P}}_2 = \textbf{\textit{P}}_3 + \textbf{\textit{P}}_4$ with constants $a=b=1$ and their linearity under Lorentz transformations,
+      \begin{equation*}
+        \begin{split}
+          \Lambda \left(\textbf{\textit{P}}_1 + \textbf{\textit{P}}_2\right) &= \Lambda \left(\textbf{\textit{P}}_3 + \textbf{\textit{P}}_4\right)\\
+          \Lambda \left(\textbf{\textit{P}}_1\right) + \Lambda \left(\textbf{\textit{P}}_2\right) &= \Lambda \left(\textbf{\textit{P}}_3\right) + \Lambda \left(\textbf{\textit{P}}_4\right)\\
+          \textbf{\textit{P}}_1' + \textbf{\textit{P}}_2' &= \textbf{\textit{P}}_3' + \textbf{\textit{P}}_4'.
+        \end{split}
+      \end{equation*}
+    \end{enumerate}
+\end{document}
