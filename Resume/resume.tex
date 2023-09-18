@@ -1,0 +1,171 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage{kantlipsum}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex, hidelinks]{hyperref}
+\usepackage{fancyhdr}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{ \hrulefill \\
+  \vspace{-2pt}\scshape\centering\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-4pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{0pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \small #4 \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemi}{}
+\renewcommand{\labelitemii}{}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{}{\Large Alexander Penaflor}} & \href{}{}\\
+\href{}{2000 Bush Street,}  & \href{mailto:alexanderpenaflor@gmail.com}{alexanderpenaflor@gmail.com}\\
+\href{}{Apt A,} & +1-925-360-1903 \\
+  \href{}{San Francisco, CA 94115} & \\
+\end{tabular*}
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {California State University, East Bay}{Hayward, CA}
+      {M.Sc., Mathematics --- Applied Mathematics Concentration}{April 2017 - May 2019}
+      % \resumeItem{Selected Coursework}
+      %   {Mathematical Modeling, Optimization, Numerical Analysis, Fourier Analysis, Complex Analysis, Tensor Analysis, and Combinatorics}
+  \resumeSubHeadingListEnd
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {California State University, East Bay}{Hayward, CA}
+      {B.Sc., Physics with Mathematics Minor}{September 2011 - June 2016}
+      % \resumeItem{Selected Coursework}
+      %  {Particle Physics, Modern Optics, Solid State Physics, Thermal $\&$ Statistical Mechanics, Electronics, Quantum Mechanics, and Electrodynamics}
+  \resumeSubHeadingListEnd
+%-----------EXPERIENCE-----------------
+\section{Experience}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Coherent Inc.}{Santa Clara, CA}
+    {Software Engineer I}{February 2022 - Present}
+    \resumeItemListStart
+        \resumeItem{NPI Engineering}{Worked with lasers with wavelengths ranging from infrared (IR), visible \& ultra violet (UV), fs pulsed lasers and output powers ranging from 10 mW to 100W. Experience working in clean room environment. Developed comprehensive Gage R\&R process for equipment qualification.}
+        \resumeItem{Optics}{Built a universal test station for Coherent Monaco Lasers used to qualify lasers. This involved setting up and aligning optics, installing and updating software, calibration of equipment used to qualify laser, and automating tests with Python and LabVIEW.}
+        \resumeItem{Python Automation}{Developed and verified an automation process using beam images to characterize  crystal quality of laser at different stages in the build process in Python. Automated noise measurement tests and integrated Python scripts to LabVIEW and TestStand to work in parallel. Maintained legacy code used in TestStand and updated C\# code that was no longer supported. Used Microsoft's Azure for software version control. }
+        \resumeItem{Documentation}{Created and updated documentation in Agile.}
+    \resumeItemListEnd
+    \resumeSubheading
+    {Prellis Biologics}{Hayward, CA}
+    {Optical Engineer}{November 2020 - October 2021}
+      \resumeItemListStart
+        \resumeItem{Optics}{Worked with fs lasers for laser printing microfluidic structures. Designed and built laser printer setup. Maintained existing optical systems.} 
+        \resumeItem{Hardware Maintenance}{Implemented shielding setup for stray beams. Performed laser chiller maintenance. Performed power measurements and laser quality checks using data gathered by Coherent Monaco lasers.}
+      \resumeItemListEnd
+    \resumeSubheading
+    {University of California, Berkeley - Extension}{Berkeley, CA}
+    {Mathematics and Physics Tutor}{November 2019 - May 2020}
+      \resumeItemListStart
+        \resumeItem{Tutoring}{Tutored international students in the KGSP (Kaust Gifted Student Program) for the math and physics SAT/ACT and for math and physics courses at UC Berkeley.}
+      \resumeItemListEnd
+      % \newpage
+    \resumeSubheading
+      {CERN}{Geneva, Switzerland}
+      {Software Engineer}{June 2019 - August 2019}
+      \resumeItemListStart
+        \resumeItem{Python Coding}
+          {Worked with the ATLAS Fast TracKer research group and system. Created a framework setup with two partitioned data format boards to allow for parallelization of track fittings. Pushed framework setup to the CERN central repository. Documented bugs and technical issues with using JIRA. Contributed documentation of the two partition system setup process on the CERN TWiki.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {CSU East Bay Physics Department}{Hayward, CA}
+      {Optics Technician}{June 2017 - May 2019}
+      \resumeItemListStart
+        \resumeItem{Hardware}{Designed and created optics configurations for a two-beam amplitude-modulated nonlinear magneto-optical rotation (AM NMOR) magnetometer. Troubleshooted internal optics of lasers. Optimized PID controller to increase bandwidth frequency of lasers using a phase-locked loop system.}
+        \resumeItem{Data Analysis}{Designed and built Python analysis framework using Bayesian and excess power statistics. }
+        \resumeItem{Documentation}{Created documentation for experimental setup for future members explaining experimental setup and the purpose of the experiment. Lectured the theory of axions, current experimental results, and future directions for a graduate mathematical physics class.}
+      \resumeItemListEnd
+ \resumeSubHeadingListEnd
+%--------Technologies------------
+\section{Programming Languages}
+  \resumeSubHeadingListStart
+    \resumeSubItem{Languages}
+      {C++, \LaTeX, MATLAB, Mathematica, Python (CV2, Dask, Matplotlib, Numpy, SciPy, Pandas, Plotly), Rust (basic understanding applied for image analysis)}
+    \resumeSubItem{Software Services}
+      {Agile, Git (Azure), GitLab, Jira, Oracle, SolidWorks, Wrike}
+    %\resumeSubItem{Operating Systems}
+    %  {Linux, Mac, Windows}
+    %\resumeSubItem{Hardware}
+     % {Arduinos, Oscilloscopes, Function Generators, Lock-In Amplifiers, Frequency Generators}
+  \resumeSubHeadingListEnd
+%-----------PROJECTS-----------------
+\section{Publications and Presentations}
+  \resumeSubHeadingListStart
+    \resumeSubItem{Publication}
+      {Samer Afach, et al. (2021) Search for Topological Defect Dark Matter With a Global Network of Optical Magnetometers, \textit{Nature Physics}.}
+    \resumeSubItem{Publication}
+      {S. Afach, et al. (2018) Characterization of the Global Network of Optical Magnetometers to
+search for Exotic Physics (GNOME), \textit{Physics of the Dark Universe}.}
+    \resumeSubHeadingListEnd
+    \resumeSubHeadingListStart
+        \resumeSubheading{APS Division of Atomic, Molecular and Optical Physics}{Fort Lauderdale, FL}{Poster Presentation}{May 30, 2018}
+        \resumeItemListStart
+            \item{
+            C. Palm, A. Penaflor, A. Guest, D.F. Jackson Kimball. ``Search for Axion Stars Using the Global Network of Optical Magnetometers for Exotic Physics (GNOME).''}
+        \resumeItemListEnd
+        \resumeSubheading{APS Far West Section}{Long Beach, CA}{Poster Presentation}{October 30, 2015}
+        \resumeItemListStart
+            \item{A. Penaflor, D. Fuentes, M. Phung, A. Cobos, T. Inaki, J. Guzman. ``A Search for Violations in the Spin Statistics Theorem Using Laser-Cooled Strontium Atoms.''}
+        \resumeItemListEnd
+    
+    \resumeSubHeadingListEnd
+
+\end{document}
